@@ -2,7 +2,7 @@ from ast import operator
 
 
 def isOperater(ch):
-	operator=['+','-','*','^']
+	operator=['+','-','*','^','/']
 	if ch in operator:
 		return True;
 	else:
@@ -11,11 +11,13 @@ def calculate(a,b,opr):
 	if opr == "+":
 		return a+b
 	elif opr == '-':
-		return a-b
+		return b-a
 	elif opr == '*':
 		return a*b
 	elif opr == '^':
 		return b**a
+        elif opr == '/':
+                return b/a
 	else:
 		print("invalid operator")
 		return
