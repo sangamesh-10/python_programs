@@ -1,5 +1,3 @@
-from dataclasses import dataclass
-from multiprocessing.sharedctypes import Value
 class Node:
     data = None
     next = None
@@ -30,10 +28,11 @@ class double_ll:
                 # self.head.next.previous = None
                 self.head = self.head.next
                 self.head.previous = None
+                return
         itr = self.head
-        while itr!=None and itr.next.data!=elem:
+        while itr!=self.tail and itr.next.data!=elem:
             itr = itr.next
-        if itr == None:
+        if itr == self.tail:
             print("element not present in list....")
             return
         if itr.next == self.tail:
@@ -42,6 +41,7 @@ class double_ll:
             return
         itr.next = itr.next.next
         itr.next.previous = itr
+        return
     def display(self):
         if self.head == None:
             print("list has no elements....")
@@ -56,6 +56,5 @@ dl.insert(2)
 dl.insert(3)   
 dl.insert(4)   
 dl.insert(5)
-dl.display()   
-        
-            
+dl.delete(6)
+dl.display()
