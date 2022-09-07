@@ -1,6 +1,3 @@
-from ast import operator
-
-
 def isOperater(ch):
 	operator=['+','-','*','^','/']
 	if ch in operator:
@@ -16,8 +13,8 @@ def calculate(a,b,opr):
 		return a*b
 	elif opr == '^':
 		return b**a
-        elif opr == '/':
-                return b/a
+	elif opr == '/':
+	    return b/a
 	else:
 		print("invalid operator")
 		return
