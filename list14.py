@@ -27,10 +27,15 @@ class Linkedlist:
 				self.Head = self.Head.next
 				return
 		itr = self.Head
-		while itr.next.data != elem and itr!=None:
+		while itr!=self.Tail and itr.next.data != elem:
 			itr = itr.next
-		if itr== None:
+		if itr== self.Tail:
 			print("element not present.....")
+			return
+		if itr.next == self.Tail:
+			itr.next = None
+			self.Tail = itr
+			return
 		itr.next = itr.next.next
 	def display(self):
 		itr = self.Head
@@ -43,5 +48,6 @@ p.insert(2)
 p.insert(3)
 p.insert(4)
 p.insert(5)
-p.delete(1)
-p.display()
+print(p.Tail.data)
+p.delete(5)
+print(p.Tail.data)
